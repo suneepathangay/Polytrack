@@ -88,7 +88,7 @@ class Driver:
         
         time.sleep(0.5)
         self.keyboard.press(Key.up)
-        
+        time.sleep(30)
     
         
         
