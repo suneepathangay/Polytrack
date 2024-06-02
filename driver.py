@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from pynput.keyboard import Key, Controller
 
+"'Driver class to interact with the polytrack game"
 
 class Driver:
     def __init__(self):
@@ -12,6 +13,7 @@ class Driver:
         self.link="https://www.kodub.com/apps/polytrack"
         self.keyboard=Controller()
     
+    #Returns the play button at the homepage of the game
     def open_tracks(self):
         try:
             self.driver.get(self.link)
@@ -45,6 +47,7 @@ class Driver:
         except Exception as e:
             print(e)
     
+    #Returns a list of all 10 tracks
     def get_tracks(self):
         play_element=self.open_tracks()  
         play_element.click()
@@ -62,6 +65,7 @@ class Driver:
         
         return track_buttons
     
+    #Takes in a track number and opens the track
     def open_track(self,track_number):
         try:
             track_buttons=self.get_tracks()
@@ -81,6 +85,7 @@ class Driver:
         except IndexError as e:
             print("enter in a valid track number")
     
+    #Begins to play the game(need to add logic for turning)
     def play(self):
         play_button=self.open_track(1)
         
